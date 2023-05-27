@@ -13,7 +13,7 @@ Interactive visualization of backprop through a single neuron using React Flow a
 - [ ] Being able to change the number of inputs to the neuron
 - [ ] Being able to perform a backprop step automatically (?)
 
-
+-----
 
 Below is the original README from create-react-app:
 
