@@ -1,7 +1,8 @@
 # Just A Neuron
 Interactive visualization of backprop through a single neuron using React Flow and a JS implementation of Micrograd.
 
-## Stuff that's missing:
+## Basic stuff:
+- [X] Project Skeleton
 - [ ] Gradient calculation
 - [ ] Way to select input neuron values
 - [ ] Styling
