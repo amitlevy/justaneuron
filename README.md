@@ -1,3 +1,8 @@
+# Just A Neuron
+Interactive visualization of backprop through a single neuron using React Flow and a JS implementation of Micrograd.
+
+Below is the original README from create-react-app:
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
