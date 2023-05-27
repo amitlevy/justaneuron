@@ -2,10 +2,10 @@
 Interactive visualization of backprop through a single neuron using React Flow and a JS implementation of Micrograd.
 
 ## Stuff that's missing:
-[] Gradient calculation
-[] Way to select input neuron values
-[] Styling
-[] Hosting it somewhere
+- Gradient calculation
+- Way to select input neuron values
+- Styling
+- Hosting it somewhere
 
 ## Optional stuff:
 - [] Tooltips or help or something to explain what's going on
