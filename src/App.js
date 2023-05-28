@@ -1,11 +1,20 @@
 import './App.css';
 import React, { useCallback, useState } from 'react';
-import ReactFlow, { applyEdgeChanges, applyNodeChanges, Background, Panel } from 'reactflow';
 import 'reactflow/dist/style.css'
+import { useFitViewOnResize } from './customHooks.js';
 import { defaultNodes, defaultEdges } from './defaults.js';
+
+import ReactFlow, {
+  applyEdgeChanges,
+  applyNodeChanges,
+  Background,
+  Panel,
+} from 'reactflow';
 
 
 function App() {
+  useFitViewOnResize();
+
   const [nodes, setNodes] = useState(defaultNodes);
   const [edges, setEdges] = useState(defaultEdges);
 
