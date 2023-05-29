@@ -10,7 +10,7 @@ Interactive visualization of backprop through a single neuron using React Flow a
 
 ## Optional stuff:
 - [ ] Tooltips or help or something to explain what's going on
-- [ ] Being able to choose activation functions other than RuLU
+- [ ] Being able to choose activation functions other than ReLU
 - [ ] Being able to change the number of inputs to the neuron
 - [ ] Being able to perform a backprop step automatically (?)
 
