@@ -1,31 +1,35 @@
-function createInputNode(id, x, y, value) {
-  return {
-    id,
-    position: { x, y },
-    data: { label: id + ` | Data: ${value.data} | Grad: ${value.grad}` },
-    sourcePosition: 'right',
-    type: 'input',
-    value: value
-  };
-}
+import dagre from 'dagre';
 
-function createOperatorNode(id, x, y, label = null, value, width = 200, sourcePosition = 'right', targetPosition = 'left') {
-  return {
-    id,
-    position: { x, y },
-    data: { label: label + ` | Data: ${value.data} | Grad: ${value.grad}` },
-    sourcePosition,
-    targetPosition,
-    style: { width },
-    value: value
-  };
-}
+const nodeWidth = 200;
+const nodeHeight = 48;
 
-function createEdge(source, target, animated = true) {
-  return { source, target, animated };
+// recreates nodes with auto calculated positions
+function layout(nodes, edges) {
+  const dagreGraph = new dagre.graphlib.Graph();
+  dagreGraph.setDefaultEdgeLabel(() => ({}));
+  dagreGraph.setGraph({ rankdir: 'LR' });
+  nodes.forEach(node => dagreGraph.setNode(node.id, {
+    width: nodeWidth,
+    height: nodeHeight,
+  }));
+
+  edges.forEach(edge => dagreGraph.setEdge(edge.source, edge.target));
+  dagre.layout(dagreGraph);
+
+  return nodes.map(node => {
+    const nodeWithPosition = dagreGraph.node(node.id);
+    return {
+      ...node,
+      position: {
+        x: nodeWithPosition.x,
+        y: nodeWithPosition.y,
+      }
+    }
+  });
 }
 
 // builds arrays for all nodes and edges in a graph
+// nodes will not have position (x, y)
 function trace(root) {
   const nodes = new Set();
   const edges = new Set();
@@ -34,8 +38,7 @@ function trace(root) {
     if (!nodes.has(v)) {
       const newNode = {
         id: v.id,
-        position: { x: 0, y: 0 }, // this needs to be calculated separately
-        data: { label: v.id + ` | Data: ${v.data} | Grad: ${v.grad}` },
+        data: { label: `Data: ${v.data} | Grad: ${v.grad}` },
         sourcePosition: 'right',
         value: v,
       };
@@ -70,8 +73,6 @@ function trace(root) {
 }
 
 export {
-  createInputNode,
-  createOperatorNode,
-  createEdge,
+  layout,
   trace,
 };
