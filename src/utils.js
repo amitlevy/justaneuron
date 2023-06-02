@@ -9,7 +9,6 @@ dagreGraph.setGraph({ rankdir: 'LR' });
 
 // recreates nodes with auto calculated positions
 function layout(nodes, edges) {
-
   nodes.forEach(node => dagreGraph.setNode(node.id, {
     width: nodeWidth,
     height: nodeHeight,
@@ -38,9 +37,11 @@ function trace(root) {
 
   function build(v) {
     if (!nodes.has(v)) {
+      const opLabel = v.children.map(child => child.data).join(v.op);
+
       const newNode = {
         id: v.id,
-        data: { label: `Data: ${v.data} | Grad: ${v.grad}` },
+        data: { label: `${opLabel} Data: ${v.data} | Grad: ${v.grad}` },
         sourcePosition: 'right',
         value: v,
       };
@@ -51,7 +52,6 @@ function trace(root) {
       } : {
         ...newNode,
         targetPosition: 'left',
-        style: { width: 200 },
       });
 
       for (const child of v.children) {
