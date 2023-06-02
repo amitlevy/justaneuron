@@ -3,11 +3,13 @@ import dagre from 'dagre';
 const nodeWidth = 200;
 const nodeHeight = 48;
 
+const dagreGraph = new dagre.graphlib.Graph();
+dagreGraph.setDefaultEdgeLabel(() => ({}));
+dagreGraph.setGraph({ rankdir: 'LR' });
+
 // recreates nodes with auto calculated positions
 function layout(nodes, edges) {
-  const dagreGraph = new dagre.graphlib.Graph();
-  dagreGraph.setDefaultEdgeLabel(() => ({}));
-  dagreGraph.setGraph({ rankdir: 'LR' });
+
   nodes.forEach(node => dagreGraph.setNode(node.id, {
     width: nodeWidth,
     height: nodeHeight,
