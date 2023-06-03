@@ -1,0 +1,14 @@
+.value-input-node {
+  height: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.38);
+  padding: 1em;
+  border-radius: 1em;
+  background: white;
+}
+
+.value-input-grad,
+.value-input-node label {
+  display: block;
+  color: #000000;
+  font-size: 12px;
+}

@@ -1,4 +1,5 @@
-import React, { useCallback, useState } from 'react';
+import React, { createContext, useCallback, useState } from 'react';
+import ValueInputNode from './ValueInputNode';
 import { useFitViewOnResize } from './customHooks';
 import { defaultNodes, defaultEdges } from './defaults';
 import './App.css';
@@ -11,10 +12,12 @@ import ReactFlow, {
   Panel,
 } from 'reactflow';
 
+const nodeTypes = { valueInput: ValueInputNode };
+
+export const AppContext = createContext(null);
+
 function App() {
   useFitViewOnResize();
-
-  // const [x1, setX1] = useState(3);
 
   const [nodes, setNodes] = useState(defaultNodes);
   const [edges, setEdges] = useState(defaultEdges);
@@ -29,25 +32,34 @@ function App() {
     [setEdges],
   );
 
+  const onValueUpdate = useCallback(
+    (evt) => {
+      console.info(`${evt.target.id} + ${evt.target.value}`)
+    }, 
+    [setNodes, setEdges],
+  );
+
   return (
     <div className="app-container">
-      {/* <button onClick={() => setX1(x1+1)}>Increment x1</button> */}
-      <ReactFlow
-        attributionPosition="bottom-left"
-        edges={edges}
-        fitView
-        onEdgesChange={onEdgesChange}
-        onNodesChange={onNodesChange}
-        nodes={nodes}
-      >
-        <Background color="#ccc" variant="cross" />
-        <Panel position="top-left">
-          <div className="panel-inner-container">
-            <h1>Just a Neuron</h1>
-            <p>Interactive visualization of backprop through a single neuron using React Flow and automatic gradient computation.</p>
-          </div>
-        </Panel>
-      </ReactFlow>
+      <AppContext.Provider value={onValueUpdate}>
+        <ReactFlow
+          attributionPosition="bottom-left"
+          edges={edges}
+          fitView
+          nodeTypes={nodeTypes}
+          onEdgesChange={onEdgesChange}
+          onNodesChange={onNodesChange}
+          nodes={nodes}
+        >
+          <Background color="#ccc" variant="cross" />
+          <Panel position="top-left">
+            <div className="panel-inner-container">
+              <h1>Just a Neuron</h1>
+              <p>Interactive visualization of backprop through a single neuron using React Flow and automatic gradient computation.</p>
+            </div>
+          </Panel>
+        </ReactFlow>
+      </AppContext.Provider>
     </div>
   );
 }

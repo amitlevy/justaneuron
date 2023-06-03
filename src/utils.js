@@ -45,14 +45,17 @@ function trace(root) {
     if (!nodes.has(v)) {
       const newNode = {
         id: v.id,
-        data: { label: `${opLabel(v)} Data: ${v.data} | Grad: ${v.grad}` },
+        data: {
+          grad: v.grad,
+          label: `${opLabel(v)} Data: ${v.data} | Grad: ${v.grad}`,
+          value: v.data,
+        },
         sourcePosition: 'right',
-        value: v,
       };
 
       nodes.add(v.op === '' ? {
         ...newNode,
-        type: 'input',
+        type: 'valueInput',
       } : {
         ...newNode,
         targetPosition: 'left',
