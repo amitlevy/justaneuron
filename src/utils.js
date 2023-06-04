@@ -48,6 +48,7 @@ function trace(root) {
         data: {
           grad: v.grad,
           label: `${opLabel(v)} Data: ${v.data} | Grad: ${v.grad}`,
+          ref: v,
           value: v.data,
         },
         sourcePosition: 'right',

@@ -68,6 +68,60 @@ class Value {
         v._backward();
       });
   }
+
+  parent(root, resetGrad) {
+    const child = this;
+    let parent = null;
+    const visited = new Set();
+
+    function search(v) {
+      if (!visited.has(v)) {
+        visited.add(v);
+        for (const c of v.children) {
+          if (resetGrad) {
+            c.grad = 0;
+          }
+
+          if (c.id === child.id) {
+            parent = v;
+            if (!resetGrad) break;
+          }
+
+          if (c.children.length > 0) {
+            search(c);
+          }
+        }
+      }
+    }
+
+    search(root)
+    return parent;
+  }
+
+  update(val, root) {
+    function forward(v, d) {
+      if (v.id === root.id) {
+        v.data = d;
+        v.grad = 0.0;
+        return;
+      }
+
+      v.data = d;
+      const parent = v.parent(root, true);
+      let newData = d;
+      const [ child1, child2 ] = parent.children;
+      if (parent.op === '+') {
+        newData = child1.data + child2.data;
+      } else if (parent.op === '*') {
+        newData = child1.data * child2.data;
+      }
+
+      forward(parent, newData);
+    }
+
+    forward(this, val);
+    root.backward();
+  }
 }
 
 export {

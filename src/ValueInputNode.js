@@ -13,7 +13,7 @@ function ValueInputNode({ data, id }) {
         className="nodrag"
         id={id}
         name="text"
-        onChange={onValueUpdate}
+        onChange={evt => onValueUpdate(data.ref, parseFloat(evt.target.value))}
         type="number"
         value={data.value}
       />

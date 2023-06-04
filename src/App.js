@@ -1,7 +1,8 @@
 import React, { createContext, useCallback, useState } from 'react';
 import ValueInputNode from './ValueInputNode';
 import { useFitViewOnResize } from './customHooks';
-import { defaultNodes, defaultEdges } from './defaults';
+import { defaultNodes, defaultEdges, root } from './defaults';
+import { layout, trace } from './utils';
 import './App.css';
 import 'reactflow/dist/style.css'
 
@@ -33,8 +34,14 @@ function App() {
   );
 
   const onValueUpdate = useCallback(
-    (evt) => {
-      console.info(`${evt.target.id} + ${evt.target.value}`)
+    (ref, val) => {
+      console.info(ref);
+      console.info(val);
+      ref.update(val, root);
+      const { nodes: newNodes, edges: newEdges } = trace(root);
+      const layoutNodes = layout(newNodes, newEdges);
+      setNodes(layoutNodes);
+      setEdges(newEdges);
     }, 
     [setNodes, setEdges],
   );

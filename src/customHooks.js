@@ -12,7 +12,6 @@ function useFitViewOnResize() {
       const layoutNodes = layout(nodes, edges);
       reactFlowInstance.setNodes(layoutNodes);
       reactFlowInstance.setEdges(edges);
-      console.log(reactFlowInstance.fitView);
       reactFlowInstance.fitView();
     };
 
