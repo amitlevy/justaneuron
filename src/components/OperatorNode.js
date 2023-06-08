@@ -1,4 +1,6 @@
+import { useContext } from 'react';
 import { Handle, Position } from 'reactflow';
+import { AppContext } from '../App';
 import './operator-node.css';
 
 function opLabel(v) {
@@ -7,10 +9,22 @@ function opLabel(v) {
 }
 
 function OperatorNode({ data, id }) {
+  const { setHoveredNode } = useContext(AppContext);
+
   return (
-    <div className="operator-node" key={id}>
+    <div
+      className="operator-node"
+      key={id}
+      onMouseEnter={() => setHoveredNode(data.ref)}
+      onMouseLeave={() => setHoveredNode(null)}>   
       <div className="operator-inner-container">
-        <span className="operator-label">{opLabel(data.ref)}</span>
+        <span
+          className="operator-label"
+          data-tooltip-id={id}
+          data-tooltip-content="Placeholder tooltip for Operator node"
+          data-tooltip-place="right">
+          {opLabel(data.ref)}
+        </span>
         <span className="operator-data">Data: {data.value}</span>
         <span className="operator-grad">Grad: {data.grad}</span>
       </div>

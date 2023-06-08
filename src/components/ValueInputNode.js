@@ -4,10 +4,13 @@ import { AppContext } from '../App';
 import './value-input-node.css';
 
 function ValueInputNode({ data, id }) {
-  const onValueUpdate = useContext(AppContext);
+  const { onValueUpdate, setHoveredNode } = useContext(AppContext);
 
   return (
-    <div className="value-input-node">
+    <div
+      className="value-input-node"
+      onMouseEnter={() => setHoveredNode(data.ref)}
+      onMouseLeave={() => setHoveredNode(null)}>
       <label htmlFor={id}>Data:</label>
       <input
         className="nodrag"

@@ -1,4 +1,5 @@
 import React, { createContext, useCallback, useState } from 'react';
+import InformationPanel from './components/InformationPanel';
 import OperatorNode from './components/OperatorNode';
 import ValueInputNode from './components/ValueInputNode';
 import { useFitViewOnResize } from './customHooks';
@@ -24,17 +25,18 @@ export const AppContext = createContext(null);
 function App() {
   useFitViewOnResize();
 
-  const [nodes, setNodes] = useState(defaultNodes);
   const [edges, setEdges] = useState(defaultEdges);
-
-  const onNodesChange = useCallback(
-    (changes) => setNodes((nds) => applyNodeChanges(changes, nds)),
-    [setNodes],
-  );
+  const [hoveredNode, setHoveredNode] = useState(null);
+  const [nodes, setNodes] = useState(defaultNodes);
 
   const onEdgesChange = useCallback(
     (changes) => setEdges((eds) => applyEdgeChanges(changes, eds)),
     [setEdges],
+  );
+
+  const onNodesChange = useCallback(
+    (changes) => setNodes((nds) => applyNodeChanges(changes, nds)),
+    [setNodes],
   );
 
   const onValueUpdate = useCallback(
@@ -48,9 +50,14 @@ function App() {
     [setNodes, setEdges],
   );
 
+  const appContext = {
+    onValueUpdate,
+    setHoveredNode,
+  };
+
   return (
     <div className="app-container">
-      <AppContext.Provider value={onValueUpdate}>
+      <AppContext.Provider value={appContext}>
         <ReactFlow
           attributionPosition="bottom-left"
           edges={edges}
@@ -67,6 +74,7 @@ function App() {
               <p>Interactive visualization of backprop through a single neuron using React Flow and automatic gradient computation.</p>
             </div>
           </Panel>
+          <InformationPanel node={hoveredNode} />
         </ReactFlow>
       </AppContext.Provider>
     </div>

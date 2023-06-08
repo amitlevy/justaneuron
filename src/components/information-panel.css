@@ -1,0 +1,8 @@
+.information-panel-inner-container {
+  background-color: rgb(252, 253, 205);
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.19);
+  font-size: 14px;
+  padding: 0 1em 0;
+  text-align: center;
+}
