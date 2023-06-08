@@ -11,16 +11,18 @@ function ValueInputNode({ data, id }) {
       className="value-input-node"
       onMouseEnter={() => setHoveredNode(data.ref)}
       onMouseLeave={() => setHoveredNode(null)}>
-      <label htmlFor={id}>Data:</label>
-      <input
-        className="nodrag"
-        id={id}
-        name="text"
-        onChange={evt => onValueUpdate(data.ref, parseFloat(evt.target.value))}
-        type="number"
-        value={data.value}
-      />
-      <span className="value-input-grad">Grad: {data.grad}</span>
+      <div className="value-input-inner-container">
+        <label htmlFor={id}>Data:</label>
+        <input
+          className="nodrag"
+          id={id}
+          name="text"
+          onChange={evt => onValueUpdate(data.ref, parseFloat(evt.target.value))}
+          type="number"
+          value={data.value}
+        />
+        <span className="value-input-grad">Grad: {data.grad}</span>
+      </div>
       <Handle type="source" position={Position.Right} />
     </div>
   );
