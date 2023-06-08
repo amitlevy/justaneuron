@@ -1,5 +1,6 @@
 import React, { createContext, useCallback, useState } from 'react';
-import ValueInputNode from './ValueInputNode';
+import OperatorNode from './components/OperatorNode';
+import ValueInputNode from './components/ValueInputNode';
 import { useFitViewOnResize } from './customHooks';
 import { defaultNodes, defaultEdges, root } from './defaults';
 import { layout, trace } from './utils';
@@ -13,7 +14,10 @@ import ReactFlow, {
   Panel,
 } from 'reactflow';
 
-const nodeTypes = { valueInput: ValueInputNode };
+const nodeTypes = {
+  operator: OperatorNode,
+  valueInput: ValueInputNode
+};
 
 export const AppContext = createContext(null);
 
@@ -35,8 +39,6 @@ function App() {
 
   const onValueUpdate = useCallback(
     (ref, val) => {
-      console.info(ref);
-      console.info(val);
       ref.update(val, root);
       const { nodes: newNodes, edges: newEdges } = trace(root);
       const layoutNodes = layout(newNodes, newEdges);

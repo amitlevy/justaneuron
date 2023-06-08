@@ -29,11 +29,7 @@ function layout(nodes, edges) {
   });
 }
 
-function opLabel(v) {
-  if (v.op === '') return '';
-  if (v.op === 'ReLU') return 'ReLU |'
-  return v.children.map(child => child.data).join(v.op) + ' |';
-}
+
 
 // builds arrays for all nodes and edges in a graph
 // nodes will not have position (x, y)
@@ -47,7 +43,6 @@ function trace(root) {
         id: v.id,
         data: {
           grad: v.grad,
-          label: `${opLabel(v)} Data: ${v.data} | Grad: ${v.grad}`,
           ref: v,
           value: v.data,
         },
@@ -60,6 +55,7 @@ function trace(root) {
       } : {
         ...newNode,
         targetPosition: 'left',
+        type: 'operator',
       });
 
       for (const child of v.children) {

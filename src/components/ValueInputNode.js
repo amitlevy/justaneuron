@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { Handle, Position } from 'reactflow';
-import { AppContext } from './App';
+import { AppContext } from '../App';
 import './value-input-node.css';
 
 function ValueInputNode({ data, id }) {

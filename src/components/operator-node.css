@@ -1,0 +1,22 @@
+.operator-node {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.38);
+  border-radius: 100%;
+  height: 100px;
+  /* padding: 1em; */
+  width: 100px;
+}
+
+.operator-data,
+.operator-grad {
+  display: block;
+  color: #000;
+  font-size: 12px;
+}
+
+.operator-inner-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
