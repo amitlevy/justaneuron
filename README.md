@@ -6,7 +6,7 @@ To run locally do `npm start`
 ## Basic stuff:
 - [X] Project Skeleton
 - [x] Gradient calculation
-- [ ] Way to select input neuron values
+- [x] Way to select input neuron values
 - [ ] Styling
 - [ ] Hosting it somewhere
 
