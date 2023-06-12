@@ -114,6 +114,8 @@ class Value {
         newData = child1.data + child2.data;
       } else if (parent.op === '*') {
         newData = child1.data * child2.data;
+      } else if (parent.op === 'ReLU') {
+        newData = child1.data < 0 ? 0.0 : child1.data;
       }
 
       forward(parent, newData);
