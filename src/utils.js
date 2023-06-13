@@ -1,7 +1,7 @@
 import dagre from 'dagre';
 
 const nodeWidth = 200;
-const nodeHeight = 48;
+const nodeHeight = 60;
 
 const dagreGraph = new dagre.graphlib.Graph();
 dagreGraph.setDefaultEdgeLabel(() => ({}));

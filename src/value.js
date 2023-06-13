@@ -66,7 +66,7 @@ class Value {
 
     build_topo(this);
 
-    this.grad = 1;
+    this.grad = 1.0;
     topo
       .slice()
       .reverse()

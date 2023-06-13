@@ -26,8 +26,8 @@ function OperatorNode({ data, id }) {
           data-tooltip-place="right">
           <Latex>{`$${opLabel(data.ref)}$`}</Latex>
         </span>
-        <span className="operator-data">Value: {data.value}</span>
-        <span className="operator-grad">Grad: {data.grad}</span>
+        <span className="operator-data">Data: {data.value.toFixed(1)}</span>
+        <span className="operator-grad">Grad: {data.grad.toFixed(1)}</span>
       </div>
       <Handle type="target" position={Position.Left} />
       <Handle type="source" position={Position.Right} />

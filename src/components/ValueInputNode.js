@@ -22,7 +22,7 @@ function ValueInputNode({ data, id }) {
           type="number"
           value={data.value}
         />
-        <span className="value-input-grad">Grad: {data.grad}</span>
+        <span className="value-input-grad">Grad: {data.grad.toFixed(1)}</span>
       </div>
       <Handle type="source" position={Position.Right} />
     </div>
