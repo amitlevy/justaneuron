@@ -13,6 +13,12 @@ class Value {
     this.grad = 0.0;
   }
 
+  static labeled_value(data, label) {
+    const new_val = new Value(data);
+    new_val.label = label;
+    return new_val;
+  }
+
   add(other) {
     const out = new Value(this.data + other.data, [this, other], '+');
 

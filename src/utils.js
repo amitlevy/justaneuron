@@ -45,6 +45,7 @@ function trace(root) {
           grad: v.grad,
           ref: v,
           value: v.data,
+          label: v.label
         },
         sourcePosition: 'right',
       };

@@ -25,7 +25,7 @@ function OperatorNode({ data, id }) {
           data-tooltip-place="right">
           {opLabel(data.ref)}
         </span>
-        <span className="operator-data">Data: {data.value}</span>
+        <span className="operator-data">Value: {data.value}</span>
         <span className="operator-grad">Grad: {data.grad}</span>
       </div>
       <Handle type="target" position={Position.Left} />

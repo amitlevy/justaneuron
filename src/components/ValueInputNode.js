@@ -12,7 +12,7 @@ function ValueInputNode({ data, id }) {
       onMouseEnter={() => setHoveredNode(data.ref)}
       onMouseLeave={() => setHoveredNode(null)}>
       <div className="value-input-inner-container">
-        <label htmlFor={id}>Data:</label>
+        <label htmlFor={id}>{data.label}</label>
         <input
           className="nodrag"
           id={id}

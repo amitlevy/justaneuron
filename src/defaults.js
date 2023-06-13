@@ -1,11 +1,12 @@
 import { Value } from './value';
 import { layout, trace } from './utils';
 
-let x1_val = new Value(2);
-let x2_val = new Value(2);
-let w1_val = new Value(4);
-let w2_val = new Value(0);
-let b_val = new Value(30);
+let x1_val = Value.labeled_value(2, 'x_1');
+let x2_val = Value.labeled_value(2, 'x_2');
+let w1_val = Value.labeled_value(4, 'w_1');
+let w2_val = Value.labeled_value(0, 'w_2');
+let b_val = Value.labeled_value(30, 'b');
+
 let mult1_val = x1_val.mul(w1_val);
 let mult2_val = x2_val.mul(w2_val);
 let add_val = mult1_val.add(mult2_val);
