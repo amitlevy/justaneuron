@@ -7,6 +7,8 @@ import { defaultNodes, defaultEdges, root } from './defaults';
 import { layout, trace } from './utils';
 import './App.css';
 import 'reactflow/dist/style.css'
+import 'katex/dist/katex.min.css';
+
 
 import ReactFlow, {
   applyEdgeChanges,

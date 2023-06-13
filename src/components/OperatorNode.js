@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { Handle, Position } from 'reactflow';
+import Latex from 'react-latex-next'
 import { AppContext } from '../App';
 import './operator-node.css';
 
@@ -23,7 +24,7 @@ function OperatorNode({ data, id }) {
           data-tooltip-id={id}
           data-tooltip-content="Placeholder tooltip for Operator node"
           data-tooltip-place="right">
-          {opLabel(data.ref)}
+          <Latex>{`$${opLabel(data.ref)}$`}</Latex>
         </span>
         <span className="operator-data">Value: {data.value}</span>
         <span className="operator-grad">Grad: {data.grad}</span>

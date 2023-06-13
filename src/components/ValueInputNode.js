@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { Handle, Position } from 'reactflow';
 import { AppContext } from '../App';
+import Latex from 'react-latex-next'
 import './value-input-node.css';
 
 function ValueInputNode({ data, id }) {
@@ -12,7 +13,7 @@ function ValueInputNode({ data, id }) {
       onMouseEnter={() => setHoveredNode(data.ref)}
       onMouseLeave={() => setHoveredNode(null)}>
       <div className="value-input-inner-container">
-        <label htmlFor={id}>{data.label}</label>
+      <label htmlFor={id} style={{ fontSize: '15px' }}><Latex>{`$${data.label}$`}</Latex></label>
         <input
           className="nodrag"
           id={id}
