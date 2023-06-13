@@ -8,7 +8,7 @@ To run locally do `npm start`
 - [x] Gradient calculation
 - [x] Way to select input neuron values
 - [x] Styling
-- [x] Polish (adding our names, links, misc)
+- [ ] Polish (adding our names, links, misc)
 - [ ] Hosting it somewhere
 
 ## Optional stuff:
