@@ -69,11 +69,11 @@ function App() {
           onNodesChange={onNodesChange}
           nodes={nodes}
         >
-          <Background color="#ccc" variant="cross" />
+          <Background color="#ccc" variant="dots" />
           <Panel position="top-left">
             <div className="panel-inner-container">
-              <h1>Just a Neuron</h1>
-              <p>Interactive visualization of backprop through a single neuron using React Flow and automatic gradient computation.</p>
+              <h1>Just A Neuron</h1>
+              <p>Many people view backprop/autograd as a blackbox, but it's actually a super simple application of the chain rule. This is a minimal interactive example showing the gradients through a single neuron with two inputs. Do you understand the values of the gradients here? Why are so many of them 1.0? What is the meaning of the grad on x_1? Can you change the inputs so that all the gradients are 0.0?</p>
             </div>
           </Panel>
           <InformationPanel node={hoveredNode} />
