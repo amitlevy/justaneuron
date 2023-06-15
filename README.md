@@ -4,12 +4,14 @@ Will eventually become a more general backprop visualization framework.
 
 To run locally do `npm start`
 
+![Screenshot](screenshot.png)
+
 ## Basic stuff:
 - [X] Project Skeleton
 - [x] Gradient calculation
 - [x] Way to select input neuron values
 - [x] Styling
-- [ ] Polish (adding our names, links, misc)
+- [x] Polish (adding our names, links, misc)
 - [ ] Hosting it somewhere
 
 ## Optional stuff:
