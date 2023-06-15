@@ -89,7 +89,9 @@ function App() {
           nodes={nodes}
         >
           <Background color="#ccc" variant="dots" />
-          <InformationPanel node={hoveredNode} />
+          <div className="information-panel">
+            <InformationPanel node={hoveredNode} />
+          </div>
         </ReactFlow>
       </AppContext.Provider>
     </div>
