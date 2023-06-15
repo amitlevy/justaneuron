@@ -16,7 +16,7 @@ function message(node) {
       return 'The ReLU activation function, which is equal to max(x,0).';
     
     default:
-      return 'Hover a node to display information here.';
+      return 'Hover over a node to display information here.';
   }
 }
 
