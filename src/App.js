@@ -61,13 +61,15 @@ function App() {
   return (
     <div className="app-container">
       <AppContext.Provider value={appContext}>
-        <div className="panel-inner-container" style={{ width: isPanelVisible ? '400px' : '30px' }}>
-          <div className="panel-content" style={{ display: isPanelVisible ? 'block' : 'none' }}>
-            <h1>Just A Neuron</h1>
-            <p>Many people view backprop/autograd as a black box, but it's actually a super simple application of the chain rule.</p>
-            <p>This is a minimal, interactive example showing the gradients through a single neuron with two inputs.</p>
-            
-            <p>Do you understand the values of the gradients here? Why are so many of them 1.0? What is the meaning of the grad on <Latex>$x_1$</Latex>? Can you change the inputs so that all the gradients become 0.0? Can you do it in another way?</p>
+        <div className="panel-inner-container">
+          <div className="panel-content" style={{ width: isPanelVisible ? '320px' : '0px' }}>
+            <div className="content-wrapper">
+              <h1>Just A Neuron</h1>
+              <p>Many people view backprop/autograd as a black box, but it's actually a super simple application of the chain rule.</p>
+              <p>This is a minimal, interactive example showing the gradients through a single neuron with two inputs.</p>
+              <p>Ideas for exploration:</p>
+              <p>Do you understand the values of the gradients here? Why are so many of them 1.0? What is the meaning of the grad on <Latex>$x_1$</Latex>? Can you change the inputs so that all the gradients become 0.0? Can you do it in another way?</p>
+            </div>
           </div>
           <div className="panel-toggle-button" onClick={() => setIsPanelVisible(!isPanelVisible)}>
             {isPanelVisible ? '<' : '>'}

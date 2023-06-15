@@ -13,7 +13,7 @@ function message(node) {
       return 'An operator node. The operator is multiplication.';
     
     case 'ReLU':
-      return 'An activation function.';
+      return 'The ReLU activation function, which is equal to max(x,0).';
     
     default:
       return 'Hover a node to display information here.';

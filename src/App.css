@@ -7,7 +7,6 @@
 
 .panel-inner-container {
   display: flex;
-  width: 100%;
   background-color: white;
   transition: width 0.3s ease;
 }
@@ -32,7 +31,14 @@ h1 {
 }
 
 .panel-content {
-  padding: 20px;
+  transition: width 0.3s ease;
   box-sizing: border-box; 
   overflow: auto;
 }
+
+.content-wrapper {
+  padding: 20px;
+  overflow: auto;
+  box-sizing: border-box;
+}
+
