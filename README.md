@@ -1,5 +1,6 @@
 # Just A Neuron
 Interactive visualization of backprop through a single neuron using React Flow and automatic gradient computation.
+Will eventually become a more general backprop visualization framework.
 
 To run locally do `npm start`
 

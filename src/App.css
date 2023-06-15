@@ -15,6 +15,9 @@ h1 {
   color: rgb(3, 6, 9);
 }
 
+h4 {
+  margin: 0px;
+}
 .reactflow-wrapper {
   flex-grow: 1;
 }
@@ -46,4 +49,11 @@ h1 {
   .information-panel {
     display: none;
   }
+}
+
+
+a {
+  text-decoration: none;
+  color: rgb(75, 96, 226);
+  margin: 0px 0px;
 }
