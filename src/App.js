@@ -65,14 +65,15 @@ function App() {
           <div className="panel-content" style={{ width: isPanelVisible ? '320px' : '0px' }}>
             <div className="content-wrapper">
               <h1>Just A Neuron</h1>
-              <p>Many people view backprop/autograd as a black box, but it's actually a super simple application of the <a href='https://en.wikipedia.org/wiki/Chain_rule'>chain rule</a>.</p>
+              <p>Most people view backprop/autograd as a black box, but it's actually a super simple application of the <a href='https://en.wikipedia.org/wiki/Chain_rule'>chain rule</a>.</p>
               <p>This is a minimal, interactive example showing the gradients through a single neuron with two inputs.</p>
               <h4>Ideas for exploration:</h4>
-              <p>Do you understand the values of the gradients here? Why are so many of them 1.0? What is the meaning of the grad on <Latex>$x_1$</Latex>? Can you change the inputs so that (excluding the output) all the gradients become 0.0 <a href='https://datascience.stackexchange.com/questions/5706/what-is-the-dying-relu-problem-in-neural-networks'>("dying ReLU")</a>? Can you do it in another way?</p>
+              <p>Do you understand the values of the gradients here? Why are so many of them 1.0? What is the meaning of the grad on <Latex>$x_1$</Latex>? Can you change the inputs so that (excluding the output) all the gradients become 0.0 <a href='https://datascience.stackexchange.com/questions/5706/what-is-the-dying-relu-problem-in-neural-networks'>("dying ReLU")</a>?</p>
               <br></br>
               <hr></hr>
               <p>Made by <a href="https://twitter.com/amitlevy64">@amitlevy</a> and <a href='https://github.com/jhar/'>@jhar</a>.</p>
               <p> Source is on <a href="https://github.com/amitlevy/justaneuron">GitHub</a>.</p>
+              <p>For an in-depth explanation of everything here, I recommend <a href="https://www.youtube.com/watch?v=VMj-3S1tku0">Andrej Karpathy's video on Micrograd</a> (OpenAI Co-founder).</p>
             </div>
           </div>
           <div className="panel-toggle-button" onClick={() => setIsPanelVisible(!isPanelVisible)}>
