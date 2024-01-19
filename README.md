@@ -1,4 +1,6 @@
 # Just A Neuron
+https://amitalevy.com/justaneuron
+
 Interactive visualization of backprop through a single neuron using React Flow and automatic gradient computation.
 
 This project will eventually become a more general backprop visualization framework.
